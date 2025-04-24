@@ -76,6 +76,17 @@ body {
 	animation: fadeIn 1s
   }
 
+  .link-cover {
+    position: absolute;
+    background-color: rgb(136, 136, 136); /* still semi-transparent */
+    background-image: url(/sources/infopopup.png); /* 🔄 replace with your image */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    pointer-events: visibleFill; /* so links still work */
+    z-index: 9999;
+  }
+
 .window {
 	position: absolute;
 	width: 300px;

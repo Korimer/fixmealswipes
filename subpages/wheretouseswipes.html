@@ -11,6 +11,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="/sources/main.css" />
 		<noscript><link rel="stylesheet" href="html5up-hyperspace/assets/css/noscript.css" /></noscript>
+        <style>
+            #popupvideo {
+              display: none;
+              margin-top: 10px;
+            }
+          </style>
 	</head>
 	<body class="is-preload">
 
@@ -21,7 +27,7 @@
 					<ul>
 						<li><a href="/index.html">Home</a></li>
 						<li><a href="/subpages/whatareswipes.html" class="active">What are Swipes?</a></li>\
-                        <li><a href="/subpages/whyimadethis.html">Why I made this Site</a></li>
+            <li><a href="/subpages/whyimadethis.html">Why I made this Site</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -32,11 +38,21 @@
 				<!-- Main -->
 					<section id="main" class="wrapper">
 						<div class="inner">
-							<h1 class="major">Why (and how!) I Made This Site</h1>
+							<h1 class="major">Early Cutoffs suck!</h1>
 							<span class="image fit"></span>
                             <p>
-
+                                A student can utilize their swipes at any all-you-may-eat location on campus, or at a few select campus shops (at which you can purchase up to $10 worth of food-only goods for one swipe).
+                                This sounds reasonable until you want to grab a quick bite at a nearby area. Having designated locations that you can use swipes doesn't sound like much of a problem until you see just how many places there are, on campus, that you <em>can't</em> use swipes.
+                                Don't believe me? Just... <button onclick="showElement()">Watch</button>
                             </p>
+                            <script>
+                                function showElement() {
+                                    document.getElementById("popupvideo").style.display = "block";
+                                }
+                            </script>
+                            <div id="popupvideo">
+                                <iframe src="https://drive.google.com/file/d/15w2Al8-nQSda2NxkW4SRyjh4vyKi3M0p/preview" width="640" height="480" allow="autoplay"></iframe>
+                            </div>
 						</div>
 					</section>
 			</div>

@@ -15,22 +15,23 @@ function coverLinks() {
       document.body.appendChild(cover);
     }
     if (localStorage.getItem("swipesremaining") == 0) {
-        setInterval(coverLinks, 0);
+        setInterval(coverLinks, 1);
+    }
+    else {
+      document.querySelectorAll('.link-cover').forEach(el => el.remove());
     }
   }
 
-  // 🔁 Keep updating every second
 window.addEventListener('DOMContentLoaded', () => {
-    let swipes = localStorage.getItem("swipesremaining");
-    if (swipes == null) {localStorage.setItem("swipesremaining",3)}
-    localStorage.setItem("swipesremaining",localStorage.getItem("swipesremaining")-1)
-    if (swipes == 0) 
-    if (localStorage.getItem("swipesremaining") == 0) {
-        coverLinks();
-        setInterval(() => {
-            
-        }, 100);
-    }
-    });
+  let swipes = localStorage.getItem("swipesremaining");
+  if (swipes == null || swipes == NaN || swipes == "NaN") {localStorage.setItem("swipesremaining",3)}
+  localStorage.setItem("swipesremaining",localStorage.getItem("swipesremaining")-1)
+  if (localStorage.getItem("swipesremaining") == 0) {
+      coverLinks();
+      setTimeout(() => {
+        localStorage.setItem("swipesremaining",2)
+      }, 1000);
+  }
+});
 
     

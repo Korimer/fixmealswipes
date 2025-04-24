@@ -39,6 +39,15 @@
                Don't know what a meal swipe is? Look <a href="subpages/swipeannoyances.html">here</a> for why they're an issue, <br>
                and look <a href="/subpages/whatareswipes.html">here</a> for what they actually are!
             </p>
+            <div class="popup" onclick="myFunction()">Click me!
+               <span class="popuptext" id="myPopup">very very exceedingly long string; lets see how this fares...</span>
+            </div>
+            <script>
+               function myFunction() {
+                  var popup = document.getElementById("myPopup");
+                  popup.classList.toggle("show",true);
+               }
+            </script> 
             <ul class="actions">
                <li><a href="/subpages/whatareswipes.html" class="button scrolly">About Swipes!</a></li>
             </ul>

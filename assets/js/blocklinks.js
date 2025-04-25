@@ -56,12 +56,12 @@ window.addEventListener('DOMContentLoaded', () => {
   let swipes = localStorage.getItem("swipesremaining");
   if (swipes == null || swipes == NaN || swipes == "NaN") {localStorage.setItem("swipesremaining",3)}
   localStorage.setItem("swipesremaining",localStorage.getItem("swipesremaining")-1)
-  if (parseInt(localStorage.getItem("swipesremaining")) <= 0) {
+  if (parseInt(localStorage.getItem("swipesremaining")) <= 0 && document.getElementById('filler') == null) {
       coverLinks();
       document.getElementById('wrapper').prepend(topbar)
       setTimeout(() => {
         document.getElementById('notification-bar').style.display = 'none';
         localStorage.setItem("swipesremaining",2);
-      }, 10000);
+      }, 60000);
   }
 });

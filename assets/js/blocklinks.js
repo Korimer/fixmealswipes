@@ -1,28 +1,10 @@
 function coverLinks() {
     // 🔄 Remove old bars before adding new ones
-
     for (const link of document.links) {
       const rect = link.getBoundingClientRect();
 
       const cover = document.createElement('div');
       covertemplate(cover,rect);
-
-      const popbase = document.createElement('div');
-      popbase.classList.add("popup");
-      const popup = document.createElement('span');
-      popup.classList.add('popuptext');
-      popup.innerHTML = "Think this sucks? "
-
-      popbase.appendChild(popup)
-
-      popbase.addEventListener("mouseenter", function() {
-        popbase.classList.add("show");  // Show the popup when entering the container
-      });
-
-      cover.addEventListener('mouseover', () => {
-        popup.classList.toggle("show",true);
-        console.log("hover detected");
-      });
       
       document.body.appendChild(cover);
       cover.appendChild(document.createElement('div'));
@@ -33,41 +15,21 @@ function coverLinks() {
 function scheduleBehavior() {
   if (parseInt(localStorage.getItem("swipesremaining")) <= 0) {
     setTimeout(() => {
-      updatepositions(document.querySelectorAll('.link-cover'),document.querySelectorAll('.popup'));
+      updatepositions(document.querySelectorAll('.link-cover'));
     }, 1);
-}
-else {
-  document.querySelectorAll('.link-cover').forEach(el => el.remove());
-  document.querySelectorAll(".popup").forEach(el => el.remove());
-}
+  }
+  else {
+    document.querySelectorAll('.link-cover').forEach(el => el.remove());
+  }
 }
 
-function updatepositions(covers,popups) {
+function updatepositions(covers) {
   for (let i=0; i<covers.length; i++) {
     const rect = document.links.item(i).getBoundingClientRect();
     const cover = covers.item(i);
-    const popup = popups.item(i);
     covertemplate(cover,rect);
-
   }
   scheduleBehavior();
-}
-function popuptemplate(popup,rect) {
-
-}
-function updatePopups(popups) {
-  for (let i=0; i<popups.length;i++) {
-    const targetRect = scaleto; // Get target element's dimensions
-  }
-
-  // Set the popup size to match the target element's width and height
-  popupText.style.width = targetRect.width + 'px';
-  popupText.style.height = targetRect.height + 'px';
-
-  // Position the popup relative to the target element (optional)
-  popupContainer.style.position = "absolute";
-  popupContainer.style.left = targetRect.left + "px";
-  popupContainer.style.top = targetRect.top + "px";
 }
 
 function covertemplate(cover,rect) {
@@ -90,4 +52,15 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-    
+let topbar = document.createElement("div");
+topbar.innerHTML = " \
+<a href='/subpages/unblocklinks.html'>\
+					<div id='notification-bar' style='display:show; width:100%; height:40px; background-color:#F4E0E1; position:fixed; z-index:999; color:#A42732;border-bottom:1px solid #A42732;'>\
+						<div class='notification-message' style='text-align:center; line-height:40px;'>\
+							Blocked links? Inaccessible site? Sounds like you used up your two allotted <em>Site Swipes</em>!\
+							Click here for more info.\
+						</div>\
+					</div>\
+				</a>\
+";
+console.log(document.getElementById('wrapper').prepend(topbar))

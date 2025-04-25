@@ -36,13 +36,14 @@
                             <h2>Annoyed?</h2>
                             Don't worry, I was generous enough to include a way around the requirement! <br>
                             Just click the below button, and you'll be returned to the main site - minus any swipe restrictions.
-                        <button> 
+                        <button onclick="disableSwipes()"> 
                             By clicking this button, I hereby agree with the statement that meal periods are wildly annoying and largely unhelpful.
                         </button>
                         ...And maybe consider that us students don't have something as convenient as a button to press to be able to ignore meal periods.
                         <script>
                             function disableSwipes() {
 								localStorage.setItem('swipesremaining',9999);
+								window.location.replace('/index.html');
                             }
                         </script>
                         </div>
